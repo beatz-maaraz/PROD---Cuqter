@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuqter Web Client - Secure & Private Chat</title>
+    <link rel="icon" type="image/png" href="/assets/white%20with%20black-BPqjU8er.png" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts & Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C3AED',
+                        'primary-dark': '#6D28D9',
+                        secondary: '#0D9488',
+                        surface: '#141219',
+                        'surface-container': '#1C1924',
+                        'surface-elevated': '#252131',
+                        'text-primary': '#F3F1F6',
+                        'text-secondary': '#A9A4B8'
+                    },
+                    fontFamily: {
+                        body: ['"Hanken Grotesk"', 'sans-serif'],
+                        display: ['"Hanken Grotesk"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: #141219;
+            color: #F3F1F6;
+        }
+        /* Custom scrollbar for glass panel lists */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 99px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(124, 58, 237, 0.3);
+        }
+        /* Pulse glow animation */
+        @keyframes pulse-slow {
+            0%, 100% {
+                transform: scale(1) translate(0px, 0px);
+                opacity: 0.25;
+            }
+            50% {
+                transform: scale(1.1) translate(20px, -20px);
+                opacity: 0.4;
+            }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 12s infinite ease-in-out;
+        }
+        .animate-pulse-slow-reverse {
+            animation: pulse-slow 16s infinite ease-in-out reverse;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/tilt-BozW5O2_.js"></script>
+</head>
+<body class="min-h-screen overflow-hidden flex flex-col justify-center items-center relative p-0 sm:p-6 md:p-12 selection:bg-primary/30 selection:text-primary">
+
+    <!-- Ambient glowing backgrounds -->
+    <div class="absolute w-[400px] h-[400px] rounded-full bg-primary/20 blur-[120px] top-[-100px] left-[-100px] animate-pulse-slow pointer-events-none"></div>
+    <div class="absolute w-[500px] h-[500px] rounded-full bg-secondary/15 blur-[150px] bottom-[-150px] right-[-100px] animate-pulse-slow-reverse pointer-events-none"></div>
+
+    <!-- Main App Container -->
+    <div class="w-full max-w-6xl h-screen sm:h-[85vh] bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-none sm:rounded-3xl shadow-2xl flex flex-row overflow-hidden relative glass-panel">
+        
+        <!-- SIDEBAR PANEL (Left Side) -->
+        <div id="sidebar-panel" class="w-full md:w-[350px] border-r border-white/5 flex flex-col flex-shrink-0 bg-surface/30 backdrop-blur-lg z-10 transition-all duration-300">
+            <!-- Sidebar Header -->
+            <div class="p-4 flex items-center justify-between border-b border-white/5">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-1 text-text-secondary hover:text-primary transition-colors active:scale-95" title="Back to landing page">
+                        <span class="material-symbols-outlined text-2xl">arrow_back</span>
+                    </a>
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center font-bold text-primary">
+                            ME
+                        </div>
+                        <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border border-surface rounded-full"></span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-text-primary text-sm leading-none">You (Client)</h4>
+                        <span class="text-text-secondary text-xs">Online</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-1">
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors rounded-full hover:bg-white/5 active:scale-95" title="Settings">
+                        <span class="material-symbols-outlined text-xl">settings</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search Contact input -->
+            <div class="p-4">
+                <div class="relative">
+                    <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-text-secondary/60 text-lg">search</span>
+                    <input id="contact-search" type="text" placeholder="Search chats..." class="w-full bg-white/5 border border-white/10 rounded-full py-2.5 pl-10 pr-4 text-sm text-text-primary focus:outline-none focus:border-primary/50 placeholder:text-text-secondary/40 focus:ring-0 transition-colors">
+                </div>
+            </div>
+
+            <!-- Chats List (Scrollable) -->
+            <div id="contacts-list" class="flex-grow overflow-y-auto custom-scrollbar p-2 space-y-1">
+                <!-- Javascript will load the contact list items dynamically -->
+            </div>
+        </div>
+
+        <!-- CHAT WINDOW (Right Side) -->
+        <div id="chat-panel" class="hidden md:flex flex-1 flex-col bg-surface/10 backdrop-blur-md z-10 transition-all duration-300">
+            <!-- Active Chat Header -->
+            <div class="p-4 border-b border-white/5 flex items-center justify-between bg-surface/30">
+                <div class="flex items-center gap-3">
+                    <!-- Mobile Back button to list -->
+                    <button id="mobile-back-btn" class="md:hidden p-2 text-text-secondary hover:text-primary transition-colors rounded-full hover:bg-white/5 active:scale-95">
+                        <span class="material-symbols-outlined text-2xl">arrow_back</span>
+                    </button>
+                    
+                    <div class="relative">
+                        <div id="active-avatar" class="w-10 h-10 rounded-full overflow-hidden border border-white/10 flex items-center justify-center font-bold">
+                            <!-- Selected Avatar -->
+                        </div>
+                        <span id="active-status-dot" class="absolute bottom-0 right-0 w-2.5 h-2.5 border border-surface rounded-full"></span>
+                    </div>
+                    <div>
+                        <h4 id="active-name" class="font-bold text-text-primary text-sm leading-none"><!-- Selected Name --></h4>
+                        <span id="active-status-text" class="text-text-secondary text-xs"><!-- Selected Status --></span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors rounded-full hover:bg-white/5 active:scale-95" title="Voice Call">
+                        <span class="material-symbols-outlined text-xl">call</span>
+                    </button>
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors rounded-full hover:bg-white/5 active:scale-95" title="Video Call">
+                        <span class="material-symbols-outlined text-xl">videocam</span>
+                    </button>
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors rounded-full hover:bg-white/5 active:scale-95" title="More Info">
+                        <span class="material-symbols-outlined text-xl">info</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Window Feed -->
+            <div id="messages-container" class="flex-grow overflow-y-auto custom-scrollbar p-6 space-y-4 flex flex-col">
+                <!-- Javascript will load the messages history feed here dynamically -->
+            </div>
+
+            <!-- Typing Indicator (appears above input) -->
+            <div id="typing-container" class="px-6 py-2 hidden">
+                <div class="flex items-center gap-2 bg-white/[0.04] border border-white/5 rounded-full px-4 py-2 w-fit">
+                    <span id="typing-label" class="text-text-secondary text-xs">Alex is typing</span>
+                    <div class="flex gap-0.5 items-center">
+                        <span class="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style="animation-delay: 0s"></span>
+                        <span class="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style="animation-delay: 0.15s"></span>
+                        <span class="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Send Input bar -->
+            <div class="p-4 border-t border-white/5 bg-surface/30 flex items-center gap-3">
+                <button class="p-2.5 text-text-secondary hover:text-primary transition-colors rounded-full hover:bg-white/5 active:scale-95" title="Attach file">
+                    <span class="material-symbols-outlined text-xl">attach_file</span>
+                </button>
+                
+                <form id="message-form" class="flex-grow flex items-center gap-3">
+                    <input id="message-input" autocomplete="off" type="text" placeholder="Type a secure message..." class="flex-grow bg-white/5 border border-white/10 rounded-full py-2.5 px-6 text-sm text-text-primary focus:outline-none focus:border-primary/50 focus:ring-0 placeholder:text-text-secondary/40 transition-colors">
+                    
+                    <button type="submit" class="w-10 h-10 rounded-full bg-primary hover:bg-primary-dark text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all flex-shrink-0 cursor-pointer">
+                        <span class="material-symbols-outlined text-lg">send</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- NO CHAT SELECTED PLACEHOLDER (Right Side) -->
+        <div id="placeholder-panel" class="hidden md:flex flex-1 flex-col items-center justify-center text-center p-8 bg-surface/10 backdrop-blur-md">
+            <div class="w-24 h-24 rounded-3xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-5xl text-primary">chat_bubble</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl mb-2 text-text-primary">Welcome to Cuqter Web</h3>
+            <p class="text-text-secondary max-w-sm text-sm mb-6">Select a conversation from the sidebar list to start exchanging secure end-to-end encrypted messages.</p>
+            <div class="flex items-center gap-2 text-xs text-text-secondary bg-white/5 border border-white/5 px-4 py-2 rounded-full">
+                <span class="material-symbols-outlined text-sm text-secondary">verified_user</span>
+                <span>Signal Protocol Encryption Activated</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script to handle all interface logic -->
+    <script>
+        // Database of chats
+        const contactsData = [
+            {
+                id: 'alex',
+                name: 'Alex Rivera',
+                status: 'online',
+                role: 'Product Designer',
+                avatarBg: 'bg-primary/20 text-primary border-primary/30',
+                initials: 'AR',
+                unread: 0,
+                history: [
+                    { sender: 'them', text: 'Hey there! Have you had a chance to look at the Cuqter UI concepts?', time: '10:15 AM' },
+                    { sender: 'me', text: 'Yes, I love the glassmorphic direction. Looks really modern.', time: '10:17 AM' },
+                    { sender: 'them', text: 'Awesome! I\'ve updated the spacing on the chat bubbles to use the 16px/4px asymmetric style.', time: '10:18 AM' },
+                    { sender: 'them', text: 'Let me know when you\'re ready to test.', time: '10:19 AM' }
+                ],
+                replies: [
+                    "That sounds like a great plan! I'll update the bento grid highlights to match.",
+                    "Indeed! Security and speed are the pillars of the new client.",
+                    "I'll sync with Sarah to see if we can get those features in the beta build.",
+                    "Perfect! Feel free to ask any other questions about the style."
+                ]
+            },
+            {
+                id: 'sarah',
+                name: 'Sarah Chen',
+                status: 'away',
+                role: 'Lead Engineer',
+                avatarBg: 'bg-secondary/20 text-secondary border-secondary/30',
+                initials: 'SC',
+                unread: 1,
+                history: [
+                    { sender: 'them', text: 'Hey, the Signal protocol implementation is ready for auditing.', time: 'Yesterday' },
+                    { sender: 'me', text: 'Great job Sarah. Did you verify the double-ratchet mechanism?', time: 'Yesterday' },
+                    { sender: 'them', text: 'Yes, fully tested. Encryption keys are rotating properly on every session. The module is fully integrated now!', time: 'Yesterday' }
+                ],
+                replies: [
+                    "Yes, the throughput benchmarks look solid. No performance hits.",
+                    "I've checked the memory footprint as well, everything is optimized.",
+                    "Let's plan a code review session for tomorrow morning.",
+                    "Always happy to secure the network!"
+                ]
+            },
+            {
+                id: 'marcus',
+                name: 'Marcus Vance',
+                status: 'online',
+                role: 'QA Lead',
+                avatarBg: 'bg-amber-500/20 text-amber-500 border-amber-500/30',
+                initials: 'MV',
+                unread: 0,
+                history: [
+                    { sender: 'them', text: 'Running the regression suite on the Windows desktop client.', time: '2h ago' },
+                    { sender: 'them', text: 'Looking very stable. Found 0 critical issues in the latest release candidate.', time: '1h ago' },
+                    { sender: 'me', text: 'Awesome, thanks Marcus!', time: '45m ago' }
+                ],
+                replies: [
+                    "No problem, just doing my job! Let's get this release out.",
+                    "I will initiate the macOS verification tests next.",
+                    "Everything looks green. We are ready for staging deployment."
+                ]
+            },
+            {
+                id: 'elena',
+                name: 'Elena Rostova',
+                status: 'offline',
+                role: 'Marketing',
+                avatarBg: 'bg-rose-500/20 text-rose-500 border-rose-500/30',
+                initials: 'ER',
+                unread: 2,
+                history: [
+                    { sender: 'them', text: 'Hi! I wanted to check if the new screenshots are ready for the features page.', time: 'Jan 30' },
+                    { sender: 'me', text: 'Almost ready, just polishing the 3D cards.', time: 'Jan 30' },
+                    { sender: 'them', text: 'Perfect. The new landing page illustrations are looking fantastic!', time: 'Jan 31' }
+                ],
+                replies: [
+                    "Let's coordinate on the launch campaign date next week.",
+                    "We should feature the privacy-first focus heavily in the main copies.",
+                    "I will assemble the product press kit."
+                ]
+            }
+        ];
+
+        let activeContactId = null;
+        let replyCounters = {};
+
+        // DOM elements
+        const contactsList = document.getElementById('contacts-list');
+        const contactSearchInput = document.getElementById('contact-search');
+        
+        const chatPanel = document.getElementById('chat-panel');
+        const placeholderPanel = document.getElementById('placeholder-panel');
+        const sidebarPanel = document.getElementById('sidebar-panel');
+        
+        const activeAvatar = document.getElementById('active-avatar');
+        const activeStatusDot = document.getElementById('active-status-dot');
+        const activeName = document.getElementById('active-name');
+        const activeStatusText = document.getElementById('active-status-text');
+        
+        const messagesContainer = document.getElementById('messages-container');
+        const messageForm = document.getElementById('message-form');
+        const messageInput = document.getElementById('message-input');
+        
+        const typingContainer = document.getElementById('typing-container');
+        const typingLabel = document.getElementById('typing-label');
+        
+        const mobileBackBtn = document.getElementById('mobile-back-btn');
+
+        // Initializer
+        function init() {
+            renderContactsList();
+            
+            // Event Listeners
+            contactSearchInput.addEventListener('input', (e) => {
+                renderContactsList(e.target.value);
+            });
+
+            messageForm.addEventListener('submit', handleSendMessage);
+            
+            mobileBackBtn.addEventListener('click', () => {
+                // Switch back to sidebar view on mobile
+                chatPanel.classList.add('hidden');
+                chatPanel.classList.remove('flex');
+                sidebarPanel.classList.remove('hidden');
+                sidebarPanel.classList.add('w-full');
+            });
+        }
+
+        // Render Contacts list on sidebar
+        function renderContactsList(filter = '') {
+            contactsList.innerHTML = '';
+            
+            const filtered = contactsData.filter(c => 
+                c.name.toLowerCase().includes(filter.toLowerCase()) || 
+                c.role.toLowerCase().includes(filter.toLowerCase())
+            );
+
+            if (filtered.length === 0) {
+                contactsList.innerHTML = `
+                    <div class="text-center p-6 text-text-secondary/60 text-sm">
+                        No contacts found
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(contact => {
+                const isSelected = contact.id === activeContactId;
+                const lastMsg = contact.history.length > 0 ? contact.history[contact.history.length - 1] : null;
+                const lastMsgText = lastMsg ? (lastMsg.sender === 'me' ? `You: ${lastMsg.text}` : lastMsg.text) : 'No messages';
+                const lastMsgTime = lastMsg ? lastMsg.time : '';
+                
+                // Status dot color
+                let statusColor = 'bg-gray-500';
+                if (contact.status === 'online') statusColor = 'bg-green-500';
+                if (contact.status === 'away') statusColor = 'bg-amber-500';
+
+                const contactEl = document.createElement('button');
+                contactEl.className = `w-full flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all text-left group active:scale-[0.98] ${isSelected ? 'bg-white/10 border border-white/5' : 'border border-transparent'}`;
+                
+                contactEl.innerHTML = `
+                    <div class="relative flex-shrink-0">
+                        <div class="w-11 h-11 rounded-full ${contact.avatarBg} flex items-center justify-center font-bold text-sm">
+                            ${contact.initials}
+                        </div>
+                        <span class="absolute bottom-0 right-0 w-2.5 h-2.5 ${statusColor} border border-surface rounded-full"></span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="flex justify-between items-baseline mb-0.5">
+                            <h5 class="font-bold text-text-primary text-sm group-hover:text-primary transition-colors truncate">${contact.name}</h5>
+                            <span class="text-[10px] text-text-secondary/60">${lastMsgTime}</span>
+                        </div>
+                        <div class="flex justify-between items-center gap-2">
+                            <p class="text-xs text-text-secondary/80 truncate flex-grow">${lastMsgText}</p>
+                            ${contact.unread > 0 ? `<span class="bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center">${contact.unread}</span>` : ''}
+                        </div>
+                    </div>
+                `;
+
+                contactEl.addEventListener('click', () => selectContact(contact.id));
+                contactsList.appendChild(contactEl);
+            });
+        }
+
+        // Select Contact and load chat window
+        function selectContact(id) {
+            activeContactId = id;
+            const contact = contactsData.find(c => c.id === id);
+            
+            // Clear unread
+            contact.unread = 0;
+            
+            // Render contacts list updates (clears badge)
+            renderContactsList(contactSearchInput.value);
+
+            // Update details
+            activeName.textContent = contact.name;
+            activeStatusText.textContent = contact.status === 'online' ? 'Online' : (contact.status === 'away' ? 'Away' : 'Offline');
+            
+            activeAvatar.className = `w-10 h-10 rounded-full overflow-hidden border border-white/10 flex items-center justify-center font-bold text-sm ${contact.avatarBg}`;
+            activeAvatar.textContent = contact.initials;
+
+            // Status dot color
+            let statusColor = 'bg-gray-500';
+            if (contact.status === 'online') statusColor = 'bg-green-500';
+            if (contact.status === 'away') statusColor = 'bg-amber-500';
+            
+            activeStatusDot.className = `absolute bottom-0 right-0 w-2.5 h-2.5 ${statusColor} border border-surface rounded-full`;
+
+            // Toggle panels visible
+            placeholderPanel.classList.add('hidden');
+            chatPanel.classList.remove('hidden');
+            chatPanel.classList.add('flex');
+
+            // Responsive Mobile Switching
+            if (window.innerWidth < 768) {
+                sidebarPanel.classList.add('hidden');
+                sidebarPanel.classList.remove('w-full');
+            }
+
+            // Render history
+            renderChatHistory(contact);
+        }
+
+        // Render Active Chat Messages history
+        function renderChatHistory(contact) {
+            messagesContainer.innerHTML = '';
+            
+            contact.history.forEach(msg => {
+                const bubble = document.createElement('div');
+                const isMe = msg.sender === 'me';
+                
+                bubble.className = `flex flex-col ${isMe ? 'items-end' : 'items-start'} max-w-[85%] ${isMe ? 'self-end' : 'self-start'}`;
+                
+                bubble.innerHTML = `
+                    <div class="p-3.5 text-sm ${isMe ? 'bg-primary/20 text-text-primary rounded-2xl rounded-tr-sm border border-primary/30' : 'bg-white/5 text-text-primary rounded-2xl rounded-tl-sm border border-white/10'} shadow-md leading-relaxed break-words">
+                        ${msg.text}
+                    </div>
+                    <div class="flex items-center gap-1 mt-1 text-[10px] text-text-secondary/50 px-1">
+                        <span>${msg.time}</span>
+                        ${isMe ? `<span class="material-symbols-outlined text-[13px] text-secondary">done_all</span>` : ''}
+                    </div>
+                `;
+
+                messagesContainer.appendChild(bubble);
+            });
+
+            // Scroll to bottom
+            scrollToBottom();
+        }
+
+        function scrollToBottom() {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Send Message logic
+        function handleSendMessage(e) {
+            e.preventDefault();
+            if (!activeContactId) return;
+
+            const text = messageInput.value.trim();
+            if (!text) return;
+
+            const contact = contactsData.find(c => c.id === activeContactId);
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            // 1. Add to history
+            const newMsg = { sender: 'me', text: text, time: timeString };
+            contact.history.push(newMsg);
+
+            // 2. Clear input
+            messageInput.value = '';
+            messageInput.focus();
+
+            // 3. Render update chat container
+            renderChatHistory(contact);
+            renderContactsList(contactSearchInput.value);
+
+            // 4. Trigger typing and auto reply simulation
+            simulateAutoReply(contact);
+        }
+
+        // Simulated contact reply with a typing indicator delay
+        function simulateAutoReply(contact) {
+            // Keep track of replies index
+            if (!replyCounters[contact.id]) {
+                replyCounters[contact.id] = 0;
+            }
+
+            const replyIndex = replyCounters[contact.id];
+            const repliesArray = contact.replies;
+            const replyText = repliesArray[replyIndex % repliesArray.length];
+            
+            // Advance counter
+            replyCounters[contact.id]++;
+
+            // Trigger typing indicator delay
+            setTimeout(() => {
+                // Confirm we are still on the same active chat
+                if (activeContactId === contact.id) {
+                    typingLabel.textContent = `${contact.name} is typing`;
+                    typingContainer.classList.remove('hidden');
+                    scrollToBottom();
+                }
+            }, 600);
+
+            // Output reply bubble
+            setTimeout(() => {
+                // Add reply to history database
+                const now = new Date();
+                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                contact.history.push({ sender: 'them', text: replyText, time: timeString });
+
+                if (activeContactId === contact.id) {
+                    typingContainer.classList.add('hidden');
+                    renderChatHistory(contact);
+                } else {
+                    // Increment unread count if switched away
+                    contact.unread++;
+                }
+                
+                renderContactsList(contactSearchInput.value);
+            }, 2000);
+        }
+
+        // Handle screen resizing for responsive switching
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                sidebarPanel.classList.remove('hidden', 'w-full');
+                if (activeContactId) {
+                    chatPanel.classList.remove('hidden');
+                    chatPanel.classList.add('flex');
+                    placeholderPanel.classList.add('hidden');
+                } else {
+                    chatPanel.classList.add('hidden');
+                    placeholderPanel.classList.remove('hidden');
+                    placeholderPanel.classList.add('flex');
+                }
+            } else {
+                if (activeContactId) {
+                    sidebarPanel.classList.add('hidden');
+                    chatPanel.classList.remove('hidden');
+                    chatPanel.classList.add('flex');
+                    placeholderPanel.classList.add('hidden');
+                } else {
+                    sidebarPanel.classList.remove('hidden');
+                    sidebarPanel.classList.add('w-full');
+                    chatPanel.classList.add('hidden');
+                    placeholderPanel.classList.add('hidden');
+                }
+            }
+        });
+
+        // Fire application
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

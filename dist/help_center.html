@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<title>Help Center</title>
+<link rel="icon" type="image/png" href="/assets/white%20with%20black-BPqjU8er.png" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: #141219;
+            color: #e6e0ea;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 24, 31, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(216, 202, 255, 0.08), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(78, 60, 119, 0.1), transparent 40%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#4c3f74",
+                      "on-surface": "#e6e0ea",
+                      "tertiary-container": "#bab3bf",
+                      "on-error-container": "#ffdad6",
+                      "on-surface-variant": "#cac4d0",
+                      "on-error": "#690005",
+                      "on-secondary": "#37255e",
+                      "surface-tint": "#cebdfc",
+                      "primary": "#d8caff",
+                      "secondary-container": "#4e3c77",
+                      "tertiary": "#d6ceda",
+                      "background": "#141219",
+                      "surface-elevated": "#25232A",
+                      "primary-container": "#bdadea",
+                      "secondary-fixed-dim": "#d1bcff",
+                      "tertiary-fixed-dim": "#cbc4d0",
+                      "surface-bright": "#3b3840",
+                      "text-secondary": "#9D98A6",
+                      "surface": "#141219",
+                      "surface-container-highest": "#36333b",
+                      "error-container": "#93000a",
+                      "secondary": "#d1bcff",
+                      "on-background": "#e6e0ea",
+                      "on-secondary-fixed": "#220e48",
+                      "status-active": "#25D366",
+                      "on-secondary-container": "#c0aaed",
+                      "on-tertiary": "#332f38",
+                      "outline": "#948f9a",
+                      "inverse-on-surface": "#322f37",
+                      "error-red": "#FF4D4D",
+                      "surface-container-low": "#1d1a22",
+                      "on-tertiary-container": "#49454f",
+                      "surface-container-lowest": "#0f0d14",
+                      "text-primary": "#F2F0F5",
+                      "primary-fixed": "#e8ddff",
+                      "on-secondary-fixed-variant": "#4e3c77",
+                      "on-tertiary-fixed-variant": "#49454f",
+                      "surface-dim": "#141219",
+                      "primary-fixed-dim": "#cebdfc",
+                      "inverse-surface": "#e6e0ea",
+                      "inverse-primary": "#64568d",
+                      "on-primary-fixed": "#1f1145",
+                      "secondary-fixed": "#eaddff",
+                      "on-primary-fixed-variant": "#4c3e73",
+                      "error": "#ffb4ab",
+                      "outline-variant": "#48454f",
+                      "surface-container-high": "#2b2930",
+                      "on-primary": "#35285b",
+                      "surface-variant": "#36333b",
+                      "surface-container": "#211e26",
+                      "on-tertiary-fixed": "#1d1a22",
+                      "tertiary-fixed": "#e8e0ec"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "bubble-gap": "4px",
+                      "container-padding-desktop": "24px",
+                      "gutter": "12px",
+                      "container-padding-mobile": "16px",
+                      "unit": "4px",
+                      "list-item-height": "72px"
+              },
+              "fontFamily": {
+                      "body-md": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-sm": ["Hanken Grotesk"],
+                      "title-lg": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "headline-md-mobile": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "title-lg": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md-mobile": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+  <script type="module" crossorigin src="/assets/tilt-BozW5O2_.js"></script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col">
+<!-- TopNavBar from Shared Components -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/5">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<a href="index.html" class="font-display-lg text-display-lg font-bold text-primary tracking-tighter hover:opacity-90 transition-opacity">Cuqter</a>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200 active:scale-95 transition-transform" href="features.html">Features</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200 active:scale-95 transition-transform" href="privacy.html">Privacy</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-transform" href="help_center.html">Help Center</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200 active:scale-95 transition-transform" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<a href="web_app.html" class="hidden md:inline-block border border-primary text-primary font-bold px-6 py-2 rounded-full hover:bg-primary/10 active:scale-95 transition-all text-body-md">
+    Launch Web
+</a>
+<a href="download.html" class="hidden md:inline-block bg-primary text-on-primary font-bold px-6 py-2 rounded-full hover:opacity-90 active:scale-95 transition-all text-body-md">
+                Download
+</a>
+<button id="mobile-menu-btn" class="md:hidden text-on-surface focus:outline-none flex items-center justify-center p-1" aria-label="Toggle mobile menu">
+    <span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="hidden md:hidden fixed top-[73px] left-0 w-full bg-surface/95 backdrop-blur-xl border-b border-white/5 py-6 px-6 flex flex-col gap-4 z-40 transition-all duration-300">
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors py-2 border-b border-white/5" href="features.html">Features</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors py-2 border-b border-white/5" href="privacy.html">Privacy</a>
+    <a class="text-primary font-bold py-2 border-b border-white/5" href="help_center.html">Help Center</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors py-2 border-b border-white/5" href="#">Blog</a>
+    <div class="flex flex-col gap-2 mt-2">
+        <a class="border border-primary text-primary font-bold px-6 py-3 rounded-full text-center hover:bg-primary/10 active:scale-95 transition-all text-body-md block" href="web_app.html">Launch Web</a>
+        <a class="bg-primary text-on-primary font-bold px-6 py-3 rounded-full text-center hover:opacity-90 active:scale-95 transition-all text-body-md block" href="download.html">Download</a>
+    </div>
+</div>
+</nav>
+<main class="flex-grow pt-24 hero-gradient">
+<!-- Hero Search Section -->
+<section class="max-w-4xl mx-auto px-6 py-16 text-center">
+<h1 class="font-display-lg text-display-lg md:text-5xl text-text-primary mb-8 tracking-tight">How can we help?</h1>
+<div class="relative max-w-2xl mx-auto group">
+<span class="material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-text-secondary group-focus-within:text-primary transition-colors">search</span>
+<input id="search-input" class="w-full bg-surface-elevated border border-white/10 rounded-full py-5 pl-16 pr-6 font-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all shadow-xl" placeholder="Search for articles, guides, and more..." type="text" autocomplete="off"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<kbd class="hidden md:inline-flex items-center gap-1 px-2 py-1 bg-surface-container-highest border border-white/5 rounded text-[10px] text-text-secondary">
+<span class="material-symbols-outlined text-xs">keyboard_command_key</span>K
+                    </kbd>
+</div>
+<!-- Search Results Dropdown -->
+<div id="search-results" class="hidden absolute left-0 right-0 mt-2 bg-surface-elevated border border-white/10 rounded-2xl shadow-2xl text-left overflow-hidden z-30 max-h-[300px] overflow-y-auto divide-y divide-white/5">
+</div>
+</div>
+<div class="mt-8 flex flex-wrap justify-center gap-3">
+<span class="text-body-sm text-text-secondary">Popular:</span>
+<a class="text-body-sm text-primary hover:underline cursor-pointer" data-article-id="two-factor-auth">Two-factor auth</a>
+<a class="text-body-sm text-primary hover:underline cursor-pointer" data-article-id="profile-customization">Changing username</a>
+<a class="text-body-sm text-primary hover:underline cursor-pointer" data-article-id="connection-issues">Desktop app sync</a>
+</div>
+</section>
+<!-- Category Grid -->
+<section class="max-w-7xl mx-auto px-6 pb-24">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Getting Started -->
+<div class="glass-panel p-8 rounded-xl hover:bg-surface-elevated transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center mb-6 text-secondary">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-3 text-text-primary">Getting Started</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mb-6">Everything you need to know to set up your Cuqter workspace.</p>
+<div class="space-y-3">
+<a class="flex items-center text-body-sm text-text-primary hover:text-primary cursor-pointer" data-article-id="account-creation">
+<span>Account creation</span>
+<span class="material-symbols-outlined text-sm ml-auto opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+<a class="flex items-center text-body-sm text-text-primary hover:text-primary cursor-pointer" data-article-id="profile-customization">
+<span>Profile customization</span>
+<span class="material-symbols-outlined text-sm ml-auto opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Messaging -->
+<div class="glass-panel p-8 rounded-xl hover:bg-surface-elevated transition-colors cursor-pointer group border-l-4 border-l-primary/30">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center mb-6 text-on-primary-container">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-3 text-text-primary">Messaging</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mb-6">Master the art of high-speed chat and rich media sharing.</p>
+<div class="space-y-3">
+<a class="flex items-center text-body-sm text-text-primary hover:text-primary cursor-pointer" data-article-id="markdown-guide">
+<span>Markdown guide</span>
+<span class="material-symbols-outlined text-sm ml-auto opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+<a class="flex items-center text-body-sm text-text-primary hover:text-primary cursor-pointer" data-article-id="channel-permissions">
+<span>Channel permissions</span>
+<span class="material-symbols-outlined text-sm ml-auto opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Security -->
+<div class="glass-panel p-8 rounded-xl hover:bg-surface-elevated transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-3 text-text-primary">Security</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mb-6">Privacy first. Learn about encryption and data protection.</p>
+<div class="space-y-3">
+<a class="flex items-center text-body-sm text-text-primary hover:text-primary cursor-pointer" data-article-id="encryption-faq">
+<span>Encryption FAQ</span>
+<span class="material-symbols-outlined text-sm ml-auto opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+<a class="flex items-center text-body-sm text-text-primary hover:text-primary cursor-pointer" data-article-id="report-vulnerability">
+<span>Report a vulnerability</span>
+<span class="material-symbols-outlined text-sm ml-auto opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Troubleshooting -->
+<div class="glass-panel p-8 rounded-xl hover:bg-surface-elevated transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-error-container flex items-center justify-center mb-6 text-on-error-container">
+<span class="material-symbols-outlined">build</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-3 text-text-primary">Troubleshooting</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mb-6">Encountered an issue? Find quick solutions and fixes here.</p>
+<div class="space-y-3">
+<a class="flex items-center text-body-sm text-text-primary hover:text-primary cursor-pointer" data-article-id="error-codes">
+<span>Common error codes</span>
+<span class="material-symbols-outlined text-sm ml-auto opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+<a class="flex items-center text-body-sm text-text-primary hover:text-primary cursor-pointer" data-article-id="connection-issues">
+<span>Connection issues</span>
+<span class="material-symbols-outlined text-sm ml-auto opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Support Section (Bento Style) -->
+<section class="max-w-7xl mx-auto px-6 pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Large Featured Card -->
+<div class="lg:col-span-2 relative overflow-hidden rounded-3xl h-[400px] flex items-end p-10 group">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A sophisticated digital server room at night, with glowing purple and neon violet light strips illuminating sleek hardware. The atmosphere is high-tech and atmospheric, reflecting a secure and premium corporate environment. Soft lens flares and a shallow depth of field create a sense of advanced engineering and digital reliability in a deep night aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlWhMcedIHVBMEq3m1yj9dHuPrcZQXhNdmQJSycyNFREllbnxgmariY6CuSuXBkkfNgZ0Xjb1BP0I_l6k1uEIAUdok27ILTZcivSB8hl78ckhQ18qly1f4DGDKuO00zf-7OxNCpw0syc_DTw08i7UW25_GIChF6nRqoHC_pU_8SSO-ya9cQqxc_ZEVC1Wb7AcGonYnwDcit5TK7xew8R0ctlgyHj6mpXZ-VF6NgaN69gKCm10vez4pxijojmrV-G4A9mv_hnErtkhj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+</div>
+<div class="relative z-10">
+<span class="inline-block px-3 py-1 bg-primary/20 text-primary rounded-full text-[10px] font-bold tracking-widest uppercase mb-4">Deep Dive</span>
+<h2 class="font-display-lg text-display-lg text-text-primary mb-4">Understanding End-to-End Encryption</h2>
+<p class="font-body-md text-text-secondary max-w-xl mb-6">Learn how Cuqter keeps your conversations private with our proprietary atmospheric encryption protocols.</p>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-bold hover:shadow-[0_0_20px_rgba(216,202,255,0.4)] transition-all cursor-pointer" data-article-id="encryption-faq">Read Whitepaper</button>
+</div>
+</div>
+<!-- Secondary Featured Cards -->
+<div class="flex flex-col gap-6">
+<div class="bg-surface-elevated p-8 rounded-3xl flex-1 border border-white/5 hover:border-primary/20 transition-all flex flex-col justify-between">
+<div>
+<h4 class="font-title-lg text-title-lg text-text-primary mb-2">Cuqter Community</h4>
+<p class="font-body-sm text-text-secondary">Join over 50,000 users in our official Discord server for real-time help.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 mt-4" href="#">
+                            Join Discord <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<div class="bg-secondary-container/20 p-8 rounded-3xl flex-1 border border-secondary/10 hover:border-secondary/30 transition-all flex flex-col justify-between">
+<div>
+<h4 class="font-title-lg text-title-lg text-text-primary mb-2">Live Status</h4>
+<div class="flex items-center gap-2 text-status-active mb-2">
+<span class="flex h-2 w-2 rounded-full bg-status-active animate-pulse"></span>
+<span class="text-xs font-bold">All Systems Operational</span>
+</div>
+<p class="font-body-sm text-text-secondary">Current uptime is 99.98% across all global regions.</p>
+</div>
+<a class="text-secondary font-bold flex items-center gap-2 mt-4" href="#">
+                            View Status Page <span class="material-symbols-outlined text-sm">bar_chart</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Help CTA -->
+<section class="max-w-7xl mx-auto px-6 pb-24">
+<div class="bg-primary/5 border border-primary/10 rounded-3xl p-12 text-center">
+<h3 class="font-display-lg text-display-lg text-text-primary mb-4">Still need help?</h3>
+<p class="font-body-md text-text-secondary mb-10 max-w-2xl mx-auto">Our support team is available 24/7 to help you with any technical hurdles or billing inquiries.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-bold flex items-center justify-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined">mail</span> Contact Support
+                    </button>
+<button class="bg-surface-container-highest text-text-primary px-10 py-4 rounded-full font-bold border border-white/5 hover:bg-surface-bright transition-colors cursor-pointer" data-article-id="markdown-guide">
+                        Developer Documentation
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer from Shared Components -->
+<footer class="w-full mt-auto bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-white/5">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 px-6 py-12 max-w-7xl mx-auto">
+<div class="col-span-2 md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-on-surface mb-4">Cuqter</div>
+<p class="text-text-secondary font-body-sm leading-relaxed mb-6">Modern messaging for the deep-focus professional. High-speed, secure, and atmospheric.</p>
+</div>
+<div>
+<h5 class="text-on-surface font-bold mb-4 font-body-md">Platform</h5>
+<ul class="space-y-2">
+<li><a class="text-text-secondary font-body-sm hover:text-primary transition-colors" href="#">App Store</a></li>
+<li><a class="text-text-secondary font-body-sm hover:text-primary transition-colors" href="#">Google Play</a></li>
+<li><a class="text-text-secondary font-body-sm hover:text-primary transition-colors" href="#">GitHub</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-on-surface font-bold mb-4 font-body-md">Support</h5>
+<ul class="space-y-2">
+<li><a class="text-on-surface font-bold font-body-sm" href="help_center.html">Help Center</a></li>
+<li><a class="text-text-secondary font-body-sm hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-text-secondary font-body-sm hover:text-primary transition-colors" href="privacy.html">Privacy Policy</a></li>
+<li><a class="text-text-secondary font-body-sm hover:text-primary transition-colors" href="#">Cookie Settings</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-on-surface font-bold mb-4 font-body-md">Connect</h5>
+<ul class="space-y-2">
+<li><a class="text-text-secondary font-body-sm hover:text-primary transition-colors" href="#">Twitter</a></li>
+<li><a class="text-text-secondary font-body-sm hover:text-primary transition-colors" href="#">Discord</a></li>
+<li><a class="text-text-secondary font-body-sm hover:text-primary transition-colors" href="#">Blog</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 py-8 border-t border-white/5 text-center md:text-left">
+<p class="text-text-secondary font-body-sm">© 2024 Cuqter Inc. All rights reserved.</p>
+</div>
+</footer>
+<!-- Search Overlay Micro-interaction -->
+<!-- Glassmorphic Modal Article Viewer -->
+<div id="article-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <!-- Backdrop -->
+    <div id="modal-backdrop" class="absolute inset-0 bg-background/80 backdrop-blur-md"></div>
+    
+    <!-- Modal Content Panel -->
+    <div id="modal-panel" class="relative w-full max-w-2xl bg-surface-elevated/95 backdrop-blur-2xl border border-white/10 rounded-[2rem] shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300 flex flex-col max-h-[85vh]">
+        <!-- Header -->
+        <div class="flex justify-between items-center p-8 border-b border-white/5">
+            <div class="flex items-center gap-2">
+                <span id="modal-category-icon" class="material-symbols-outlined text-primary text-2xl">rocket_launch</span>
+                <span id="modal-category" class="font-label-sm text-text-secondary uppercase tracking-wider">Getting Started</span>
+            </div>
+            <button id="modal-close" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 text-text-secondary hover:text-text-primary transition-colors focus:outline-none cursor-pointer">
+                <span class="material-symbols-outlined text-xl">close</span>
+            </button>
+        </div>
+        <!-- Body (scrollable) -->
+        <div class="p-8 overflow-y-auto flex-grow prose prose-invert font-body-md text-text-secondary">
+            <h2 id="modal-title" class="font-display-lg text-3xl text-text-primary mb-6">Article Title</h2>
+            <div id="modal-body" class="space-y-4 leading-relaxed">
+                <!-- Dynamic text here -->
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="p-6 border-t border-white/5 bg-surface-container-lowest/50 text-center">
+            <p class="text-xs text-text-secondary">Was this article helpful? <button class="text-primary hover:underline ml-2 cursor-pointer">Yes</button> · <button class="text-primary hover:underline ml-1 cursor-pointer">No</button></p>
+        </div>
+    </div>
+</div>
+
+<script>
+        // Article Database
+        const articleDb = {
+            "account-creation": {
+                title: "How to Create an Account",
+                category: "Getting Started",
+                icon: "rocket_launch",
+                content: `
+                    <p>Creating your Cuqter account is simple and takes less than a minute. Follow these steps:</p>
+                    <ol class="list-decimal pl-5 mt-4 space-y-2">
+                        <li>Download the Cuqter app on your iOS or Android device, or open the Desktop client.</li>
+                        <li>Enter your phone number. We use secure SMS verification to authenticate your identity without asking for email passwords.</li>
+                        <li>Enter the 6-digit confirmation code sent to your phone.</li>
+                        <li>Setup your profile details (Display name, optional bio, and avatar).</li>
+                    </ol>
+                    <p class="mt-4">Once completed, your local keypairs will be generated, and you're ready to communicate securely.</p>
+                `
+            },
+            "profile-customization": {
+                title: "Customizing Your Profile",
+                category: "Getting Started",
+                icon: "rocket_launch",
+                content: `
+                    <p>Cuqter profiles are designed to showcase your professional identity with a soft, clean aesthetic. To customize your profile:</p>
+                    <ol class="list-decimal pl-5 mt-4 space-y-2">
+                        <li>Open the Cuqter app and go to <strong>Settings</strong> from the navigation menu.</li>
+                        <li>Click on your avatar or display name to edit profile details.</li>
+                        <li>Upload a high-resolution avatar image (it will be cropped to a clean circle layout).</li>
+                        <li>Add your custom bio, tags, and professional interests to stand out in team environments.</li>
+                    </ol>
+                    <p class="mt-4">All profile updates are synced securely across all your devices in under 50ms.</p>
+                `
+            },
+            "markdown-guide": {
+                title: "Markdown Formatting Guide",
+                category: "Messaging",
+                icon: "forum",
+                content: `
+                    <p>Write clear, expressive messages using standard Markdown syntax. Cuqter supports formatting native inside chat bubbles:</p>
+                    <ul class="list-disc pl-5 mt-4 space-y-2">
+                        <li><strong>Bold</strong>: Wrap text in double asterisks <code>**text**</code>.</li>
+                        <li><em>Italics</em>: Wrap text in single asterisks <code>*text*</code>.</li>
+                        <li>Strikethrough: Wrap text in tildes <code>~~text~~</code>.</li>
+                        <li>Inline Code: Wrap text in backticks <code>\`code\`</code>.</li>
+                        <li>Code Blocks: Use triple backticks with an optional language specifier on a separate line.</li>
+                        <li>Quotes: Start a line with a greater-than symbol <code>&gt; quote text</code>.</li>
+                    </ul>
+                    <p class="mt-4">Format lists, highlight code keywords, and communicate efficiently with your team.</p>
+                `
+            },
+            "channel-permissions": {
+                title: "Channel & Group Permissions",
+                category: "Messaging",
+                icon: "forum",
+                content: `
+                    <p>Keep your group channels organized and secure using granular permission roles. As a group admin, you can control:</p>
+                    <ul class="list-disc pl-5 mt-4 space-y-2">
+                        <li><strong>Who can join</strong>: Restrict channel access using unique invitation links or explicit approvals.</li>
+                        <li><strong>Who can write</strong>: Create read-only announcement channels or restrict rich media attachments.</li>
+                        <li><strong>Admin roles</strong>: Delegate administrative moderation tasks (kick, ban, mute) to trusted members.</li>
+                        <li><strong>Integration rights</strong>: Restrict which users can add external bot integrations or custom Webhooks.</li>
+                    </ul>
+                `
+            },
+            "encryption-faq": {
+                title: "Understanding End-to-End Encryption",
+                category: "Security",
+                icon: "verified_user",
+                content: `
+                    <p>Your privacy is a fundamental human right. Cuqter uses double-ratchet multi-party encryption based on the open-source Signal Protocol.</p>
+                    <p class="mt-4"><strong>How does E2E encryption work?</strong></p>
+                    <p class="mt-2">Every message, voice call, and file attachment is encrypted on your local device before transmission. Only the designated recipient holds the private key needed to decrypt the payload. Our servers only route encrypted text packets; we have zero knowledge of their content.</p>
+                    <p class="mt-4">Our cryptography libraries are audited regularly by independent security firms to guarantee they contain no backdoors.</p>
+                `
+            },
+            "report-vulnerability": {
+                title: "Reporting a Security Vulnerability",
+                category: "Security",
+                icon: "verified_user",
+                content: `
+                    <p>We are committed to securing our community. If you discover a security issue or vulnerability in our apps or infrastructure, please report it immediately.</p>
+                    <p class="mt-4"><strong>Submission Guidelines:</strong></p>
+                    <ol class="list-decimal pl-5 mt-4 space-y-2">
+                        <li>Send an encrypted report detailing the vulnerability and steps to reproduce to our security team.</li>
+                        <li>Give us reasonable time to review and patch the issue before making any public disclosure.</li>
+                        <li>Do not attempt to compromise user data or disrupt service availability during your research.</li>
+                    </ol>
+                    <p class="mt-4">Qualified reports are eligible for bounty payouts under our Bug Bounty Program.</p>
+                `
+            },
+            "error-codes": {
+                title: "Common Error Codes Reference",
+                category: "Troubleshooting",
+                icon: "build",
+                content: `
+                    <p>If you encounter issues, here is a reference list of common client error codes:</p>
+                    <div class="space-y-3 mt-4">
+                        <div><strong>E-101 (Connection Reset):</strong> Client was disconnected from our gateway. Check your proxy or firewall.</div>
+                        <div><strong>E-104 (Offline Storage Full):</strong> Your browser/client storage is out of disk space to cache message history.</div>
+                        <div><strong>E-201 (Session Expired):</strong> Your cryptographic session has expired or keys are out of sync. Log out and log back in to renew your keys.</div>
+                        <div><strong>E-308 (Rate Limited):</strong> You are sending messages too quickly. Please wait a few seconds before trying again.</div>
+                    </div>
+                `
+            },
+            "connection-issues": {
+                title: "Troubleshooting Connection Issues",
+                category: "Troubleshooting",
+                icon: "build",
+                content: `
+                    <p>Cuqter is designed to run efficiently even on slow or unstable network connections. If you cannot connect:</p>
+                    <ol class="list-decimal pl-5 mt-4 space-y-2">
+                        <li>Verify your device has active internet access by loading another webpage.</li>
+                        <li>Check our Uptime Status page to see if servers are undergoing maintenance.</li>
+                        <li>If you are using a VPN or corporate firewall, ensure port <code>443</code> and websocket connections to <code>*.cuqter.com</code> are permitted.</li>
+                        <li>Toggle your device's Wi-Fi or cellular network off and on to clear cached DNS routing.</li>
+                    </ol>
+                `
+            },
+            "two-factor-auth": {
+                title: "Setting up Two-Factor Authentication",
+                category: "Security",
+                icon: "verified_user",
+                content: `
+                    <p>Add an extra layer of protection to your profile using Two-Factor Authentication (2FA). Once enabled, registering your account on a new device will require both your phone number verification and a custom PIN.</p>
+                    <ol class="list-decimal pl-5 mt-4 space-y-2">
+                        <li>Open the Cuqter app and navigate to <strong>Settings > Privacy & Security</strong>.</li>
+                        <li>Click on <strong>Two-Factor Authentication</strong>.</li>
+                        <li>Select a secure 6-digit PIN that is hard to guess.</li>
+                        <li>Optionally, link a backup email address to recover your account if you forget your PIN.</li>
+                    </ol>
+                    <p class="mt-4">Never share your SMS verification codes or 2FA PIN with anyone.</p>
+                `
+            }
+        };
+
+        // Modal Functionality
+        const modal = document.getElementById('article-modal');
+        const modalPanel = document.getElementById('modal-panel');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const modalClose = document.getElementById('modal-close');
+        
+        const mCategory = document.getElementById('modal-category');
+        const mCategoryIcon = document.getElementById('modal-category-icon');
+        const mTitle = document.getElementById('modal-title');
+        const mBody = document.getElementById('modal-body');
+
+        function openArticle(articleId) {
+            const article = articleDb[articleId];
+            if (!article) return;
+
+            mCategory.textContent = article.category;
+            mCategoryIcon.textContent = article.icon;
+            mTitle.textContent = article.title;
+            mBody.innerHTML = article.content;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalPanel.classList.remove('scale-95', 'opacity-0');
+                modalPanel.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalPanel.classList.remove('scale-100', 'opacity-100');
+            modalPanel.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', closeModal);
+
+        // Bind all elements with data-article-id
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('[data-article-id]');
+            if (target) {
+                e.preventDefault();
+                const id = target.getAttribute('data-article-id');
+                openArticle(id);
+            }
+        });
+
+        // Search Input Functionality
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            if (query === '') {
+                searchResults.classList.add('hidden');
+                searchResults.innerHTML = '';
+                return;
+            }
+
+            const matches = [];
+            for (const [id, article] of Object.entries(articleDb)) {
+                if (article.title.toLowerCase().includes(query) || article.content.toLowerCase().includes(query)) {
+                    matches.push({ id, ...article });
+                }
+            }
+
+            if (matches.length === 0) {
+                searchResults.innerHTML = `
+                    <div class="px-6 py-4 text-text-secondary font-body-sm">
+                        No articles found for "${e.target.value}"
+                    </div>
+                `;
+            } else {
+                searchResults.innerHTML = matches.map(match => `
+                    <div class="px-6 py-4 hover:bg-surface-bright cursor-pointer flex items-center justify-between group transition-colors" data-article-id="${match.id}">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-xl">${match.icon}</span>
+                            <div>
+                                <h4 class="font-body-md font-semibold text-text-primary group-hover:text-primary transition-colors">${match.title}</h4>
+                                <p class="text-xs text-text-secondary uppercase tracking-wider">${match.category}</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-colors text-sm">arrow_forward</span>
+                    </div>
+                `).join('');
+            }
+            searchResults.classList.remove('hidden');
+        });
+
+        // Hide search results on click outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.add('hidden');
+            }
+        });
+
+        // Command + K keyboard shortcut
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+
+        // Add subtle hover effect to cards
+        const cards = document.querySelectorAll('.glass-panel');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = menuBtn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+                }
+            });
+        }
+    </script>
+</body></html>

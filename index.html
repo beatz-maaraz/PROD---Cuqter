@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cuqter | Message Privately</title>
+<link rel="icon" type="image/png" href="File/icon/white with black.png" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#4c3f74",
+                        "on-surface": "#e6e0ea",
+                        "tertiary-container": "#bab3bf",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#cac4d0",
+                        "on-error": "#690005",
+                        "on-secondary": "#37255e",
+                        "surface-tint": "#cebdfc",
+                        "primary": "#d8caff",
+                        "secondary-container": "#4e3c77",
+                        "tertiary": "#d6ceda",
+                        "background": "#141219",
+                        "surface-elevated": "#25232A",
+                        "primary-container": "#bdadea",
+                        "secondary-fixed-dim": "#d1bcff",
+                        "tertiary-fixed-dim": "#cbc4d0",
+                        "surface-bright": "#3b3840",
+                        "text-secondary": "#9D98A6",
+                        "surface": "#141219",
+                        "surface-container-highest": "#36333b",
+                        "error-container": "#93000a",
+                        "secondary": "#d1bcff",
+                        "on-background": "#e6e0ea",
+                        "on-secondary-fixed": "#220e48",
+                        "status-active": "#25D366",
+                        "on-secondary-container": "#c0aaed",
+                        "on-tertiary": "#332f38",
+                        "outline": "#948f9a",
+                        "inverse-on-surface": "#322f37",
+                        "error-red": "#FF4D4D",
+                        "surface-container-low": "#1d1a22",
+                        "on-tertiary-container": "#49454f",
+                        "surface-container-lowest": "#0f0d14",
+                        "text-primary": "#F2F0F5",
+                        "primary-fixed": "#e8ddff",
+                        "on-secondary-fixed-variant": "#4e3c77",
+                        "on-tertiary-fixed-variant": "#49454f",
+                        "surface-dim": "#141219",
+                        "primary-fixed-dim": "#cebdfc",
+                        "inverse-surface": "#e6e0ea",
+                        "inverse-primary": "#64568d",
+                        "on-primary-fixed": "#1f1145",
+                        "secondary-fixed": "#eaddff",
+                        "on-primary-fixed-variant": "#4c3e73",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#48454f",
+                        "surface-container-high": "#2b2930",
+                        "on-primary": "#35285b",
+                        "surface-variant": "#36333b",
+                        "surface-container": "#211e26",
+                        "on-tertiary-fixed": "#1d1a22",
+                        "tertiary-fixed": "#e8e0ec"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "title-lg": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-md-mobile": ["Hanken Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(29, 26, 34, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .bento-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            background: rgba(37, 35, 42, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/5">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<a href="index.html" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
+<div class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Cuqter Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKmH5LmFBjqcMGrvAxfTXOlIRX37RsAlt5ztVQdUoXtGFfwm76KZfFSJDRdXxShKXOUtg32zwtIhT462l4nS0qF58HowGzYiGEwet6rhso2l-Vwn_FzoiGGpAqGIoHvIozeKq88CjL1P95eJqw2XrxjG6wEuONO4el54Ar_gmITmq1QT5Wzl9OFhpZdaFJHrKVSRMwK-IFxF8X0_UFtgrQhOzM0VLQ6vuxPk9lAG5PukDXEUulSULB21WdbNDkdPwHufmZP1McaG39"/>
+</div>
+<span class="font-display-lg text-headline-md font-bold text-primary tracking-tighter">Cuqter</span>
+</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200 active:scale-95 transition-transform" href="features.html">Features</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200 active:scale-95 transition-transform" href="privacy.html">Privacy</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200 active:scale-95 transition-transform" href="help_center.html">Help Center</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200 active:scale-95 transition-transform" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<a href="web_app.html" class="hidden md:inline-block border border-primary text-primary font-bold px-6 py-2 rounded-full hover:bg-primary/10 active:scale-95 transition-all text-body-md">
+    Launch Web
+</a>
+<a href="download.html" class="hidden md:inline-block bg-primary text-on-primary font-bold px-6 py-2 rounded-full hover:opacity-90 active:scale-95 transition-all text-body-md">
+    Download
+</a>
+<button id="mobile-menu-btn" class="md:hidden text-on-surface focus:outline-none flex items-center justify-center p-1" aria-label="Toggle mobile menu">
+    <span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="hidden md:hidden fixed top-[73px] left-0 w-full bg-surface/95 backdrop-blur-xl border-b border-white/5 py-6 px-6 flex flex-col gap-4 z-40 transition-all duration-300">
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors py-2 border-b border-white/5" href="features.html">Features</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors py-2 border-b border-white/5" href="privacy.html">Privacy</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors py-2 border-b border-white/5" href="help_center.html">Help Center</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors py-2 border-b border-white/5" href="#">Blog</a>
+    <div class="flex flex-col gap-2 mt-2">
+        <a class="border border-primary text-primary font-bold px-6 py-3 rounded-full text-center hover:bg-primary/10 active:scale-95 transition-all text-body-md block" href="web_app.html">Launch Web</a>
+        <a class="bg-primary text-on-primary font-bold px-6 py-3 rounded-full text-center hover:opacity-90 active:scale-95 transition-all text-body-md block" href="download.html">Download</a>
+    </div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<h1 class="font-display-lg text-display-lg md:text-[64px] md:leading-[72px] mb-6 text-text-primary">
+                    Message <span class="text-primary">privately</span>
+</h1>
+<p class="font-body-md text-title-lg text-text-secondary max-w-lg mb-10 leading-relaxed">
+                    Simple, reliable, private messaging and calling, available all over the world. Your conversations stay between you and the people you care about.
+                </p>
+<div class="flex flex-wrap gap-4">
+<a href="download.html" class="bg-primary text-[#120F17] font-bold px-8 py-4 rounded-full flex items-center gap-2 hover:brightness-110 hover:shadow-[0_0_25px_rgba(124,58,237,0.6)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 group">
+                        Download
+                        <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">download</span>
+</a>
+<a href="privacy.html" class="border border-primary text-primary font-bold px-8 py-4 rounded-full hover:bg-primary/10 active:scale-95 transition-all">
+                        Learn Privacy
+</a>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -inset-4 bg-primary/20 blur-[100px] rounded-full"></div>
+<div class="relative rounded-3xl overflow-hidden glass-panel p-2 transform rotate-1 md:rotate-3 shadow-2xl">
+<img alt="Lifestyle messaging visual" class="w-full rounded-2xl object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugD7n1EyKl9POG3nqc6SWXw2G3rTxh6j8c56joyihnybugKlodstK-k6hqb2TYlSRARrB-F5vm14iRL2s0UCiPtUYtuZhhPsuvT4yRE4yw8Puhi2KR35R3JJxVRYwhoci5Sq9Y1SKt60R7O7L_1gD_fjwkCQQDZZPaLIxnjTp2JFUmB8mUaNp7FgEQ39eGRWXxOX_Pv7iDBkenUtGHltxbT2oohZybjxn4U9noiTsAefhQAn6m0On2oVk-w"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Features -->
+<section class="py-24 px-6 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-headline-md md:text-display-lg text-text-primary mb-4">Why millions choose Cuqter</h2>
+<div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px]">
+<!-- Large Card -->
+<div class="md:col-span-2 md:row-span-2 bento-card glass-panel rounded-[32px] p-8 flex flex-col justify-end overflow-hidden relative group">
+<div class="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="relative z-10">
+<span class="bg-primary-container text-on-primary-container font-label-sm px-3 py-1 rounded-full mb-4 inline-block">Security</span>
+<h3 class="font-headline-md text-text-primary mb-4">End-to-End Encryption</h3>
+<p class="font-body-md text-text-secondary max-w-md">
+                            Your personal messages and calls are secured with end-to-end encryption. No one outside of your chats, not even Cuqter, can read or listen to them.
+                        </p>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="bento-card glass-panel rounded-[32px] p-8 flex flex-col justify-between">
+<div class="w-12 h-12 bg-secondary-container rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">public</span>
+</div>
+<div>
+<h3 class="font-title-lg text-text-primary mb-2">Global Connectivity</h3>
+<p class="font-body-sm text-text-secondary">High-quality calls and messaging across the globe, even on slow connections.</p>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="bento-card glass-panel rounded-[32px] p-8 flex flex-col justify-between">
+<div class="w-12 h-12 bg-secondary-container rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div>
+<h3 class="font-title-lg text-text-primary mb-2">Group Chats</h3>
+<p class="font-body-sm text-text-secondary">Keep in touch with your family and friends with expressive group features.</p>
+</div>
+</div>
+<!-- Horizontal Medium Card -->
+<div class="md:col-span-3 bento-card glass-panel rounded-[32px] p-8 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex-1">
+<h3 class="font-headline-md text-text-primary mb-2">Privacy is in our DNA</h3>
+<p class="font-body-md text-text-secondary">We believe privacy is a fundamental human right. That's why we never sell your data or compromise your security for profit.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex -space-x-4">
+<div class="w-12 h-12 rounded-full border-2 border-surface bg-surface-bright flex items-center justify-center text-primary font-bold">JD</div>
+<div class="w-12 h-12 rounded-full border-2 border-surface bg-surface-bright flex items-center justify-center text-secondary font-bold">AS</div>
+<div class="w-12 h-12 rounded-full border-2 border-surface bg-surface-bright flex items-center justify-center text-status-active font-bold">MK</div>
+</div>
+<div class="flex items-center gap-2 text-status-active font-bold">
+<span class="w-2 h-2 rounded-full bg-status-active animate-pulse"></span>
+                            2M+ Active Users
+                        </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- App Showcase -->
+<section class="py-24 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+<div class="flex-1 order-2 md:order-1">
+<div class="relative w-[300px] mx-auto md:mx-0">
+<div class="absolute -inset-10 bg-secondary/10 blur-[80px] rounded-full"></div>
+<div class="relative bg-surface-container-highest rounded-[48px] p-4 border-[8px] border-surface-bright shadow-2xl">
+<img alt="Cuqter Mobile App Interface" class="w-full h-auto rounded-[32px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKmH5LmFBjqcMGrvAxfTXOlIRX37RsAlt5ztVQdUoXtGFfwm76KZfFSJDRdXxShKXOUtg32zwtIhT462l4nS0qF58HowGzYiGEwet6rhso2l-Vwn_FzoiGGpAqGIoHvIozeKq88CjL1P95eJqw2XrxjG6wEuONO4el54Ar_gmITmq1QT5Wzl9OFhpZdaFJHrKVSRMwK-IFxF8X0_UFtgrQhOzM0VLQ6vuxPk9lAG5PukDXEUulSULB21WdbNDkdPwHufmZP1McaG39"/>
+</div>
+</div>
+</div>
+<div class="flex-1 order-1 md:order-2">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-md text-text-primary mb-8">
+                    Designed for <span class="italic text-secondary">Focus</span>
+</h2>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-status-active/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-status-active text-[16px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h4 class="font-title-lg text-text-primary">Status Indicators</h4>
+<p class="font-body-md text-text-secondary">Know when your messages are delivered and read with subtle visual cues.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-status-active/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-status-active text-[16px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h4 class="font-title-lg text-text-primary">Dark Mode Native</h4>
+<p class="font-body-md text-text-secondary">A premium deep-night aesthetic that's easy on the eyes during late-night chats.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-status-active/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-status-active text-[16px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h4 class="font-title-lg text-text-primary">Atmospheric Depth</h4>
+<p class="font-body-md text-text-secondary">Tonal layers and glassmorphic navigation for a sophisticated, modern feel.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-6 relative overflow-hidden">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-30 pointer-events-none">
+<div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-primary/20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-secondary/20 blur-[120px] rounded-full"></div>
+</div>
+<div class="max-w-4xl mx-auto glass-panel rounded-[40px] p-12 text-center relative z-10">
+<h2 class="font-display-lg text-display-lg text-text-primary mb-6">Ready to switch?</h2>
+<p class="font-body-md text-title-lg text-text-secondary mb-10">Join millions of people using Cuqter for private conversations every day.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a href="download.html" class="bg-[#eaddff] text-[#220e48] font-bold px-10 py-5 rounded-2xl flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+    <svg class="w-6 h-6 text-[#220e48] fill-current flex-shrink-0" viewBox="0 0 24 24">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-.96.04-2.13.64-2.82 1.45-.6.69-1.12 1.83-.98 2.94 1.07.08 2.15-.52 2.81-1.33z"/>
+    </svg>
+    App Store
+</a>
+<a href="download.html" class="bg-[#eaddff] text-[#220e48] font-bold px-10 py-5 rounded-2xl flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+    <svg class="w-6 h-6 text-[#220e48] fill-current flex-shrink-0" viewBox="0 0 24 24">
+        <path d="M5 3.06c-.11.08-.2.22-.26.39v17.1c.06.17.15.31.26.39l9.31-9.31L5 3.06zM15.68 11.23L6.41 1.96C6.73 1.77 7.15 1.72 7.6 1.9l11.4 6.58-3.32 2.75zm1.53.77l3.66 2.11c.46.26.46.7 0 .96l-3.66 2.11-2.75-2.75 2.75-2.43zm-1.53.77l3.32 2.75-11.4 6.58c-.45.18-.87.13-1.19-.06l9.27-9.27z"/>
+    </svg>
+    Google Play
+</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-white/5">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 px-6 py-12 max-w-7xl mx-auto">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="w-6 h-6 rounded-md overflow-hidden flex-shrink-0">
+<img alt="Cuqter" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKmH5LmFBjqcMGrvAxfTXOlIRX37RsAlt5ztVQdUoXtGFfwm76KZfFSJDRdXxShKXOUtg32zwtIhT462l4nS0qF58HowGzYiGEwet6rhso2l-Vwn_FzoiGGpAqGIoHvIozeKq88CjL1P95eJqw2XrxjG6wEuONO4el54Ar_gmITmq1QT5Wzl9OFhpZdaFJHrKVSRMwK-IFxF8X0_UFtgrQhOzM0VLQ6vuxPk9lAG5PukDXEUulSULB21WdbNDkdPwHufmZP1McaG39"/>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Cuqter</span>
+</div>
+<p class="text-text-secondary font-body-sm leading-relaxed mb-6">
+                    Secure messaging for everyone. Built with privacy at its core.
+                </p>
+<p class="text-text-secondary font-body-sm">© 2024 Cuqter Inc. All rights reserved.</p>
+</div>
+<div>
+<h5 class="text-on-surface font-bold font-body-md mb-6">Product</h5>
+<ul class="space-y-4">
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-sm opacity-80 hover:opacity-100" href="features.html">Features</a></li>
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-sm opacity-80 hover:opacity-100" href="#">Blog</a></li>
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-sm opacity-80 hover:opacity-100" href="#">Twitter</a></li>
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-sm opacity-80 hover:opacity-100" href="#">GitHub</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-on-surface font-bold font-body-md mb-6">Support</h5>
+<ul class="space-y-4">
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-sm opacity-80 hover:opacity-100" href="help_center.html">Help Center</a></li>
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-sm opacity-80 hover:opacity-100" href="#">Discord</a></li>
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-sm opacity-80 hover:opacity-100" href="#">Cookie Settings</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-on-surface font-bold font-body-md mb-6">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-sm opacity-80 hover:opacity-100" href="#">Terms of Service</a></li>
+<li><a class="text-text-secondary hover:text-primary transition-colors font-body-sm opacity-80 hover:opacity-100" href="privacy.html">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script type="module" src="js/tilt.js"></script>
+<script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = menuBtn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+                }
+            });
+        }
+    </script>
+</body></html>
